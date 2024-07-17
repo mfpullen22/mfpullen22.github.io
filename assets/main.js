@@ -1853,17 +1853,11 @@
 		onvisible.add('#text01', { style: 'fade-up', speed: 1000, intensity: 1, threshold: 3, delay: 0, replay: false });
 		onvisible.add('#text02', { style: 'fade-up', speed: 1000, intensity: 2, threshold: 3, delay: 0, replay: false });
 		onvisible.add('#icons01', { style: 'fade-up', speed: 1000, intensity: 1, threshold: 3, delay: 0, stagger: 125, staggerOrder: 'reverse', staggerSelector: ':scope > li', replay: false });
-		onvisible.add('#container07', { style: 'fade-in', speed: 1000, intensity: 5, threshold: 3, delay: 0, replay: false });
 		onvisible.add('#text07', { style: 'fade-up', speed: 1000, intensity: 2, threshold: 3, delay: 0, replay: false });
-		onvisible.add('#container03', { style: 'fade-in', speed: 1000, intensity: 5, threshold: 3, delay: 0, replay: false });
-		onvisible.add('#container05', { style: 'fade-in', speed: 1000, intensity: 5, threshold: 3, delay: 0, replay: false });
 		onvisible.add('#image06', { style: 'fade-up', speed: 1000, intensity: 0, threshold: 3, delay: 0, replay: false });
 		onvisible.add('#image07', { style: 'fade-up', speed: 1000, intensity: 0, threshold: 3, delay: 0, replay: false });
-		onvisible.add('#container08', { style: 'fade-in', speed: 1000, intensity: 5, threshold: 3, delay: 0, replay: false });
-		onvisible.add('#container06', { style: 'fade-in', speed: 1000, intensity: 5, threshold: 3, delay: 0, replay: false });
 		onvisible.add('#text05', { style: 'fade-up', speed: 1000, intensity: 2, threshold: 3, delay: 0, replay: false });
 		onvisible.add('#text06', { style: 'fade-up', speed: 1000, intensity: 2, threshold: 3, delay: 0, replay: false });
-		onvisible.add('#container04', { style: 'fade-in', speed: 1000, intensity: 5, threshold: 3, delay: 0, replay: false });
 		onvisible.add('#image04', { style: 'fade-up', speed: 1000, intensity: 0, threshold: 3, delay: 0, replay: false });
 		onvisible.add('#image03', { style: 'fade-up', speed: 1000, intensity: 0, threshold: 3, delay: 0, replay: false });
 		onvisible.add('#image09', { style: 'fade-up', speed: 1000, intensity: 0, threshold: 3, delay: 0, replay: false });

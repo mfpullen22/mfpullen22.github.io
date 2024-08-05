@@ -174,6 +174,17 @@
 				return o;
 		
 			}()),
+			ready = {
+				list: [],
+				add: function(f) {
+					this.list.push(f);
+				},
+				run: function() {
+					this.list.forEach((f) => {
+						f();
+					});
+				},
+			},
 			trigger = function(t) {
 				dispatchEvent(new Event(t));
 			},
@@ -439,10 +450,10 @@
 		
 						}
 		
-				// Deferred script tags.
+				// Embeds.
 		
-					// Get list of deferred script tags.
-						a = parent.querySelectorAll('deferred-script');
+					// Get unloaded embeds.
+						a = parent.querySelectorAll('unloaded-script');
 		
 					// Step through list.
 						for (i=0; i < a.length; i++) {
@@ -450,8 +461,8 @@
 							// Create replacement script tag.
 								x = document.createElement('script');
 		
-							// Set deferred data attribute (so we can unload this element later).
-								x.setAttribute('data-deferred', '');
+							// Set "loaded" data attribute (so we can unload this element later).
+								x.setAttribute('data-loaded', '');
 		
 							// Set "src" attribute (if present).
 								if (a[i].getAttribute('src'))
@@ -465,6 +476,25 @@
 								a[i].replaceWith(x);
 		
 						}
+		
+				// Everything else.
+		
+					// Create "loadelements" event.
+						x = new Event('loadelements');
+		
+					// Get unloaded elements.
+						a = parent.querySelectorAll('[data-unloaded]');
+		
+					// Step through list.
+						a.forEach((element) => {
+		
+							// Clear attribute.
+								element.removeAttribute('data-unloaded');
+		
+							// Dispatch event.
+								element.dispatchEvent(x);
+		
+						});
 		
 			},
 			unloadElements = function(parent) {
@@ -521,18 +551,18 @@
 						if (e)
 							e.blur();
 		
-				// Deferred script tags.
+				// Embeds.
 				// NOTE: Disabled for now. May want to bring this back later.
 				/*
 		
-					// Get list of (previously deferred) script tags.
-						a = parent.querySelectorAll('script[data-deferred]');
+					// Get loaded embeds.
+						a = parent.querySelectorAll('script[data-loaded]');
 		
 					// Step through list.
 						for (i=0; i < a.length; i++) {
 		
-							// Create replacement deferred-script tag.
-								x = document.createElement('deferred-script');
+							// Create replacement unloaded-script tag.
+								x = document.createElement('unloaded-script');
 		
 							// Set "src" attribute (if present).
 								if (a[i].getAttribute('src'))
@@ -1424,6 +1454,174 @@
 						this.style.opacity = 1;
 					},
 				},
+				'bounce-up': {
+					type: 'animate',
+					keyframes: function(intensity) {
+		
+						let diff = (intensity + 1) * 0.075;
+		
+						return [
+							{
+								opacity: 0,
+								transform: 'translateY(' + diff + 'rem)',
+							},
+							{
+								opacity: 1,
+								transform: 'translateY(' + (-1 * diff) + 'rem)',
+							},
+							{
+								opacity: 1,
+								transform: 'translateY(' + (diff * 0.25) + 'rem)',
+								offset: 0.9,
+							},
+							{
+								opacity: 1,
+								transform: 'translateY(0)',
+							}
+						];
+		
+					},
+					options: function(speed) {
+		
+						return {
+							duration: speed,
+							iterations: 1,
+						};
+		
+					},
+					rewind: function() {
+						this.style.opacity = 0;
+					},
+					play: function() {
+						this.style.opacity = 1;
+					},
+				},
+				'bounce-down': {
+					type: 'animate',
+					keyframes: function(intensity) {
+		
+						let diff = (intensity + 1) * 0.075;
+		
+						return [
+							{
+								opacity: 0,
+								transform: 'translateY(' + (-1 * diff) + 'rem)',
+							},
+							{
+								opacity: 1,
+								transform: 'translateY(' + diff + 'rem)',
+							},
+							{
+								opacity: 1,
+								transform: 'translateY(' + (-1 * (diff * 0.25)) + 'rem)',
+								offset: 0.9,
+							},
+							{
+								opacity: 1,
+								transform: 'translateY(0)',
+							}
+						];
+		
+					},
+					options: function(speed) {
+		
+						return {
+							duration: speed,
+							iterations: 1,
+						};
+		
+					},
+					rewind: function() {
+						this.style.opacity = 0;
+					},
+					play: function() {
+						this.style.opacity = 1;
+					},
+				},
+				'bounce-left': {
+					type: 'animate',
+					keyframes: function(intensity) {
+		
+						let diff = (intensity + 1) * 0.075;
+		
+						return [
+							{
+								opacity: 0,
+								transform: 'translateX(' + diff + 'rem)',
+							},
+							{
+								opacity: 1,
+								transform: 'translateX(' + (-1 * diff) + 'rem)',
+							},
+							{
+								opacity: 1,
+								transform: 'translateX(' + (diff * 0.25) + 'rem)',
+								offset: 0.9,
+							},
+							{
+								opacity: 1,
+								transform: 'translateX(0)',
+							}
+						];
+		
+					},
+					options: function(speed) {
+		
+						return {
+							duration: speed,
+							iterations: 1,
+						};
+		
+					},
+					rewind: function() {
+						this.style.opacity = 0;
+					},
+					play: function() {
+						this.style.opacity = 1;
+					},
+				},
+				'bounce-right': {
+					type: 'animate',
+					keyframes: function(intensity) {
+		
+						let diff = (intensity + 1) * 0.075;
+		
+						return [
+							{
+								opacity: 0,
+								transform: 'translateX(' + (-1 * diff) + 'rem)',
+							},
+							{
+								opacity: 1,
+								transform: 'translateX(' + diff + 'rem)',
+							},
+							{
+								opacity: 1,
+								transform: 'translateX(' + (-1 * (diff * 0.25)) + 'rem)',
+								offset: 0.9,
+							},
+							{
+								opacity: 1,
+								transform: 'translateX(0)',
+							}
+						];
+		
+					},
+					options: function(speed) {
+		
+						return {
+							duration: speed,
+							iterations: 1,
+						};
+		
+					},
+					rewind: function() {
+						this.style.opacity = 0;
+					},
+					play: function() {
+						this.style.opacity = 1;
+					},
+				},
 			},
 		
 			/**
@@ -1853,20 +2051,21 @@
 		onvisible.add('#text01', { style: 'fade-up', speed: 1000, intensity: 1, threshold: 3, delay: 0, replay: false });
 		onvisible.add('#text02', { style: 'fade-up', speed: 1000, intensity: 2, threshold: 3, delay: 0, replay: false });
 		onvisible.add('#icons01', { style: 'fade-up', speed: 1000, intensity: 1, threshold: 3, delay: 0, stagger: 125, staggerOrder: 'reverse', staggerSelector: ':scope > li', replay: false });
-		onvisible.add('#container07', { style: 'fade-in', speed: 1000, intensity: 5, threshold: 3, delay: 0, replay: false });
 		onvisible.add('#text07', { style: 'fade-up', speed: 1000, intensity: 2, threshold: 3, delay: 0, replay: false });
-		onvisible.add('#container03', { style: 'fade-in', speed: 1000, intensity: 5, threshold: 3, delay: 0, replay: false });
-		onvisible.add('#container05', { style: 'fade-in', speed: 1000, intensity: 5, threshold: 3, delay: 0, replay: false });
 		onvisible.add('#image06', { style: 'fade-up', speed: 1000, intensity: 0, threshold: 3, delay: 0, replay: false });
 		onvisible.add('#image07', { style: 'fade-up', speed: 1000, intensity: 0, threshold: 3, delay: 0, replay: false });
-		onvisible.add('#container08', { style: 'fade-in', speed: 1000, intensity: 5, threshold: 3, delay: 0, replay: false });
-		onvisible.add('#container06', { style: 'fade-in', speed: 1000, intensity: 5, threshold: 3, delay: 0, replay: false });
 		onvisible.add('#text05', { style: 'fade-up', speed: 1000, intensity: 2, threshold: 3, delay: 0, replay: false });
 		onvisible.add('#text06', { style: 'fade-up', speed: 1000, intensity: 2, threshold: 3, delay: 0, replay: false });
-		onvisible.add('#container04', { style: 'fade-in', speed: 1000, intensity: 5, threshold: 3, delay: 0, replay: false });
 		onvisible.add('#image04', { style: 'fade-up', speed: 1000, intensity: 0, threshold: 3, delay: 0, replay: false });
+		onvisible.add('#text08', { style: 'fade-up', speed: 1000, intensity: 2, threshold: 3, delay: 0, replay: false });
+		onvisible.add('#image02', { style: 'fade-up', speed: 1000, intensity: 0, threshold: 3, delay: 0, replay: false });
+		onvisible.add('#image08', { style: 'fade-up', speed: 1000, intensity: 0, threshold: 3, delay: 0, replay: false });
+		onvisible.add('#image05', { style: 'fade-up', speed: 1000, intensity: 0, threshold: 3, delay: 0, replay: false });
+		onvisible.add('#text03', { style: 'fade-up', speed: 1000, intensity: 2, threshold: 3, delay: 0, replay: false });
 		onvisible.add('#image03', { style: 'fade-up', speed: 1000, intensity: 0, threshold: 3, delay: 0, replay: false });
 		onvisible.add('#image09', { style: 'fade-up', speed: 1000, intensity: 0, threshold: 3, delay: 0, replay: false });
-		onvisible.add('#image05', { style: 'fade-up', speed: 1000, intensity: 0, threshold: 3, delay: 0, replay: false });
+	
+	// Run ready handlers.
+		ready.run();
 
 })();

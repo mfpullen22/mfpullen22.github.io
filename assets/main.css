@@ -137,7 +137,7 @@ a[onclick]:not([href]) {
 	cursor: pointer;
 }
 
-deferred-script {
+unloaded-script {
 	display: none;
 }
 
@@ -385,14 +385,6 @@ body.is-instant:after {
 	transition: none;
 }
 
-#image04:not(:first-child) {
-	margin-top: 1.5rem !important;
-}
-
-#image04:not(:last-child) {
-	margin-bottom: 1.5rem !important;
-}
-
 #image04 .frame {
 	width: 6rem;
 	border-radius: 100%;
@@ -404,6 +396,66 @@ body.is-instant:after {
 }
 
 #image04 .frame img {
+	transition: none;
+}
+
+#image02 {
+	text-align: center;
+}
+
+#image02 .frame {
+	width: 7.625rem;
+	height: 2.25rem;
+	border-color: #FFFFFF;
+	border-style: solid;
+	border-width: 1px;
+	box-shadow: -0.367rem 0.506rem 0.5rem 0rem rgba(0,0,0,0.78);
+	transition: none;
+}
+
+#image02 img {
+	height: 100% !important;
+	object-fit: cover;
+	object-position: center;
+	width: 100% !important;
+}
+
+#image02 .frame img {
+	transition: none;
+}
+
+#image08 .frame {
+	width: 7.625rem;
+	height: 2.25rem;
+	border-color: #FFFFFF;
+	border-style: solid;
+	border-width: 4px;
+	box-shadow: -0.367rem 0.506rem 0.5rem 0rem rgba(0,0,0,0.78);
+	transition: none;
+}
+
+#image08 img {
+	height: 100% !important;
+	object-fit: cover;
+	object-position: center;
+	width: 100% !important;
+}
+
+#image08 .frame img {
+	transition: none;
+}
+
+#image05 .frame {
+	width: 6rem;
+	border-radius: 100%;
+	border-color: #FFFFFF;
+	border-style: solid;
+	border-width: 4px;
+	box-shadow: -0.367rem 0.506rem 0.5rem 0rem rgba(0,0,0,0.78);
+	transition: none;
+}
+
+#image05 .frame img {
 	transition: none;
 }
 
@@ -450,28 +502,6 @@ body.is-instant:after {
 }
 
 #image09 .frame img {
-	transition: none;
-}
-
-#image05:not(:first-child) {
-	margin-top: 1.5rem !important;
-}
-
-#image05:not(:last-child) {
-	margin-bottom: 1.5rem !important;
-}
-
-#image05 .frame {
-	width: 6rem;
-	border-radius: 100%;
-	border-color: #FFFFFF;
-	border-style: solid;
-	border-width: 4px;
-	box-shadow: -0.367rem 0.506rem 0.5rem 0rem rgba(0,0,0,0.78);
-	transition: none;
-}
-
-#image05 .frame img {
 	transition: none;
 }
 
@@ -588,6 +618,48 @@ h1 span[style], h2 span[style], h3 span[style], p span[style], h1 strong, h2 str
 }
 
 #text06 span.p:nth-child(n + 2) {
+	margin-top: 1rem;
+}
+
+#text08 {
+	text-align: center;
+	color: #000000;
+	font-family: 'Inter', sans-serif;
+	font-size: 1em;
+	line-height: 1;
+	font-weight: 400;
+}
+
+#text08 a {
+	text-decoration: underline;
+}
+
+#text08 a:hover {
+	text-decoration: none;
+}
+
+#text08 span.p:nth-child(n + 2) {
+	margin-top: 1rem;
+}
+
+#text03 {
+	text-align: center;
+	color: #000000;
+	font-family: 'Inter', sans-serif;
+	font-size: 1em;
+	line-height: 1;
+	font-weight: 400;
+}
+
+#text03 a {
+	text-decoration: underline;
+}
+
+#text03 a:hover {
+	text-decoration: none;
+}
+
+#text03 span.p:nth-child(n + 2) {
 	margin-top: 1rem;
 }
 
@@ -2337,15 +2409,35 @@ h1 span[style], h2 span[style], h3 span[style], p span[style], h1 strong, h2 str
 		width: 6rem;
 	}
 	
-	#image04:not(:first-child) {
-		margin-top: 1.125rem !important;
-	}
-	
-	#image04:not(:last-child) {
-		margin-bottom: 1.125rem !important;
-	}
-	
 	#image04 .frame {
+		width: 6rem;
+	}
+	
+	#image02 .frame {
+		width: 7.625rem;
+		height: 2.8125rem !important;
+	}
+	
+	#image02 img {
+		height: 100% !important;
+		object-fit: cover;
+		object-position: center;
+		width: 100% !important;
+	}
+	
+	#image08 .frame {
+		width: 7.625rem;
+		height: 2.8125rem !important;
+	}
+	
+	#image08 img {
+		height: 100% !important;
+		object-fit: cover;
+		object-position: center;
+		width: 100% !important;
+	}
+	
+	#image05 .frame {
 		width: 6rem;
 	}
 	
@@ -2371,18 +2463,6 @@ h1 span[style], h2 span[style], h3 span[style], p span[style], h1 strong, h2 str
 		object-fit: cover;
 		object-position: center;
 		width: 100% !important;
-	}
-	
-	#image05:not(:first-child) {
-		margin-top: 1.125rem !important;
-	}
-	
-	#image05:not(:last-child) {
-		margin-bottom: 1.125rem !important;
-	}
-	
-	#image05 .frame {
-		width: 6rem;
 	}
 	
 	#text01 {
@@ -2418,6 +2498,20 @@ h1 span[style], h2 span[style], h3 span[style], p span[style], h1 strong, h2 str
 		width: 100%;
 		font-size: 1em;
 		line-height: 1.5;
+	}
+	
+	#text08 {
+		letter-spacing: 0rem;
+		width: 100%;
+		font-size: 1em;
+		line-height: 1;
+	}
+	
+	#text03 {
+		letter-spacing: 0rem;
+		width: 100%;
+		font-size: 1em;
+		line-height: 1;
 	}
 	
 	#icons01 {
@@ -3420,6 +3514,14 @@ h1 span[style], h2 span[style], h3 span[style], p span[style], h1 strong, h2 str
 		--spacing: 1.3125rem;
 	}
 	
+	#image02 .frame {
+		height: 2.25rem !important;
+	}
+	
+	#image08 .frame {
+		height: 2.25rem !important;
+	}
+	
 	#image03 .frame {
 		height: 2.25rem !important;
 	}
@@ -3528,6 +3630,14 @@ h1 span[style], h2 span[style], h3 span[style], p span[style], h1 strong, h2 str
 		--spacing: 1.125rem;
 	}
 	
+	#image02 .frame {
+		height: 1.96875rem !important;
+	}
+	
+	#image08 .frame {
+		height: 1.96875rem !important;
+	}
+	
 	#image03 .frame {
 		height: 1.96875rem !important;
 	}
@@ -3553,6 +3663,14 @@ h1 span[style], h2 span[style], h3 span[style], p span[style], h1 strong, h2 str
 	}
 	
 	#text06 {
+		font-size: 1em;
+	}
+	
+	#text08 {
+		font-size: 1em;
+	}
+	
+	#text03 {
 		font-size: 1em;
 	}
 	
